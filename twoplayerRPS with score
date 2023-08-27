@@ -1,0 +1,58 @@
+print("Welcome to Rock, Paper, Scissors.")
+print("Each player select their move. R, P, or S.")
+print("R for Rock, P for Paper, S for Scissors.")
+print()
+readyPlay = "Y"
+player1name = input("What is Player 1's name? ")
+player2name = input("What is Player 2's name? ")
+player1score = 0
+player2score = 0
+
+from getpass import getpass as input
+
+while readyPlay == "Y" or readyPlay == "y":
+  player1move = input(player1name + "'s move: ")
+  player2move = input(player2name + "'s move: ")
+  
+  if player1move == "R" or player1move == "r":
+    if player2move == "R" or player2move == "r":
+      print("You both picked Rock. This game is a draw.")
+    elif player2move == "S" or player2move == "s":
+      print(player1name + " used their rock to clobber " + player2name + "'s scissors.")
+      player1score = player1score + 1
+    elif player2move == "P" or player2move == "p":
+      print(player2name + "'s paper suffocates " + player1name + "'s rock.")
+      player2score = player2score + 1
+    else:
+      print("Invalid Move " + player2name + ".")
+  elif player1move == "S" or player1move == "s":
+    if player2move == "S" or player2move == "s":
+      print("You both picked Scissors. This game is a draw.")
+    elif player2move == "R" or player2move == "r":
+      print(player2name + " used their rock to clobber " + player1name + "'s scissors.")
+      player2score = player2score + 1
+    elif player2move == "P" or player2move == "p":
+      print(player1name + "'s scissors shreds " + player2name + "'s paper.")
+      player1score = player1score + 1
+    else:
+      print("Invalid Move " + player2name + ".")
+  elif player1move == "P" or player1move == "p":
+    if player2move == "P" or player2move == "p":
+      print("You both picked Paper. This game is a draw.")
+    elif player2move == "S" or player2move == "s":
+      print(player2name + "'s scissors shreds " + player1name + "'s paper.")
+      player2score = player2score + 1
+    elif player2move == "R" or player2move == "r":
+      print(player1name + "'s paper suffocates " + player2name + "'s rock.")
+      player1score = player1score + 1
+    else:
+      print("Invalid Move " + player2name + ".")
+  else:
+    print("Invalid Move " + player1name + ".")
+
+  print()
+  print(player1name, ":", player1score, "   ", player2name, ":", player2score)
+  print()  
+  readyPlay = input("Play again? Y or N ")
+
+print("Thank you for playing. Come back again.")
